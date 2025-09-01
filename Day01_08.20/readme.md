@@ -1,1 +1,159 @@
+# 01 - Swap two numbers without a temp variable
 
+```bash
+
+let a = 5
+let b = 10
+a = a+b
+b = a-b
+a = a-b
+
+console.log('A =',a)
+console.log('B =',b)
+```
+Answer
+
+C:Day01_08.20>node Entry.js
+A = 10
+B = 5
+
+# 02 - Find 3 largest numbers in an array using sorting
+
+```bash
+
+let numbers = [12, 5, 87, 34, 56, 90, 1, 44];
+numbers.sort((a,b)=>b-a);
+let top3 = numbers.slice(0,3);
+console.log("Three largest numbers: ",top3)
+```
+Answer
+
+C:Day01_08.20>node Entry.js
+A = 10
+B = 5
+Three largest numbers:  [ 90, 87, 56 ]
+
+# 03 - Break a whole no into digitsblike 4562-> 4,5,6,2
+
+```bash
+
+let num = 4562;
+let digits = [];
+
+while (num > 0) {
+    let digit = num % 10;        
+    digits.unshift(digit); 
+    num = Math.floor(num / 10); 
+}
+```
+Answer
+
+C:Day01_08.20>node Entry.js
+[ 4, 5, 6, 2 ]
+
+# 04 - Scale matrix
+
+```bash
+
+function scaleMatrix(matrix, scalar) {
+    let result = [];
+
+    for (let i = 0; i < matrix.length; i++) {
+        result[i] = [];
+        for (let j = 0; j < matrix[i].length; j++) {
+            result[i][j] = matrix[i][j] * scalar; 
+        }
+    }
+
+    return result;
+}
+
+let A = [
+    [1, 2],
+    [3, 4]
+];
+let k = 3;
+
+console.log(scaleMatrix(A, k));
+```
+Answer
+
+C:Day01_08.20>node Entry.js
+[ [ 3, 6 ], [ 9, 12 ] ]
+
+# 05 - Multiply two matrises
+
+```bash
+
+function multiplyMatrices(A, B) {
+    let rowsA = A.length,
+        colsA = A[0].length,
+        rowsB = B.length,
+        colsB = B[0].length;
+
+    if (colsA !== rowsB) {
+        throw new Error("Matrix multiplication not possible: columns of A must equal rows of B");
+    }
+
+    let result = Array.from({ length: rowsA }, () => Array(colsB).fill(0));
+
+    for (let i = 0; i < rowsA; i++) {
+        for (let j = 0; j < colsB; j++) {
+            for (let k = 0; k < colsA; k++) {
+                result[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+    return result;
+}
+
+let A = [
+    [1, 2, 3],
+    [4, 5, 6]
+];
+let B = [
+    [7, 8],
+    [9, 10],
+    [11, 12]
+];
+
+console.log(multiplyMatrices(A, B));
+```
+Answer
+
+C:Day01_08.20>node Entry.js
+[ [ 58, 64 ], [ 139, 154 ] ]
+
+# 06 - Create a function to print element from multidimensional array
+
+```bash
+
+function printAllElements(matrix) {
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            console.log(matrix[i][j]);
+        }
+    }
+}
+
+
+let arr = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+printAllElements(arr);
+```
+Answer
+
+C:Day01_08.20>node Entry.js
+1
+2
+3
+4
+5
+6
+7
+8
+9
